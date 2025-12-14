@@ -1,0 +1,18 @@
+<br><br>
+<h2 class="fw-semibold mb-3">Filtro de búsqueda</h2>
+<app-product-filter (buscarProducto)="buscarProductos($event)"></app-product-filter>
+
+<br><br>
+<h2 class="fw-semibold mb-3">Listado de Productos</h2>
+
+<div class="row g-4">
+  @for (product of productosFiltrados; track product._id) { 
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <app-products-card [product]="product"></app-products-card>
+    </div>
+  }
+
+  @empty {
+    <p class="text-muted">¡No hay productos para mostrar!</p>
+  }
+</div>
